@@ -1,0 +1,41 @@
+            <nav class="sidebar navbar-light bg-warning ">
+                    <!-- <a class="navbar-brand" href="#">ONLINE EXAM</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                
+                   
+                        <ul class="navbar-nav  ml-auto topnav ">
+                            <li class="nav-item ">
+                                <a class="nav-link" routerLink="">{{username}} </a>
+                            </li>
+                           
+                            <li class="nav-item active">
+                                <a class="nav-link" [routerLink]="['./createexam']">Create New</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link"  [routerLink]="['./enroll']" >Enroll Participants</a>
+                            </li>   
+                            <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['./uploadqns']" >UpLoadQns</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['./viewresult']">View Result</a>
+                            </li>  
+                            <li class="nav-item">
+                                    <a class="nav-link" routerLink="">Modify</a>
+                            </li>                       
+                            
+                            <li class="nav-item" >
+                                <a class="nav-link btn btn-danger text-white" type="button" routerLink="/logout" data-toggle="modal">LogOut</a>
+                            </li>
+                        </ul>     
+                                    
+                        
+            
+                </nav>
+            
+    
+	
+	

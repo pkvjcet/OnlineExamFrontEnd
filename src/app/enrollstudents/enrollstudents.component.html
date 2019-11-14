@@ -1,0 +1,40 @@
+<div class="container">
+        <div class="row">
+               
+            <div class="col col-12 col-sm-1"> </div> 
+            <div class="col col-12 col-sm-10">  
+                    <div class="page-header">
+                            <h1 class="bg-primary ">Enroll Students</h1>
+                    </div>                  
+                    <select  class="form-control input_pass" name="u_examname" [(ngModel)]="examnameSelected" (change)="onChange($event.target.value)">
+                        <option > Select Test</option>    
+                        <option *ngFor="let x of examnames">{{x}}</option>
+                    </select>
+                    <form >
+                            <table class="table" *ngIf="flag">
+                                    <thead>
+                                        <tr>
+                                           
+                                            <th>User Name</th>
+                                            <th>Full Name</th>  
+                                            <th>Enroll?</th>     
+                                        </tr>
+                                    </thead>
+                                      <tr *ngFor ='let student of students'>
+                                       
+                                        <td>{{student.userName}}</td>
+                                        <td>{{student.userFullName}}</td>                                        
+                                        <td><button class="btn btn-info" (click)='enrollstudent(student.userName,student.userFullName)' >ENROLL</button></td>
+                                      </tr>
+                                </table>
+                    </form>   
+            </div> 
+            <div class="col col-12 col-sm-1"> </div> 
+        </div>
+</div>
+
+
+
+
+
+

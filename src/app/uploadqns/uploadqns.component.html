@@ -1,0 +1,64 @@
+<div class="container">
+        <div class="row">
+               
+            <div class="col col-12 col-sm-1"> </div> 
+            <div class="col col-12 col-sm-10">  
+                    <div class="page-header">
+                            <h1 class="bg-primary ">UpLoad Questions</h1>
+                    </div>                  
+                    <select  class="form-control input_pass" name="u_examname" [(ngModel)]="examnameSelected">
+                        <option > Select Test</option>    
+                        <option *ngFor="let x of examnames">{{x}}</option>
+                    </select>
+                    <form (ngSubmit)="uploadQns()" ngNativeValidate>
+                            <div class="container">
+                                    <div class="row">
+                                        <div class="col col-12 col-sm-2"></div>
+                                        <div class="col col-12 col-sm-8">
+                                               
+                                                        <table class="table">
+                                                               <tr>
+                                                                   <td> <textarea name="q_name"  cols="30" rows="5" placeholder="Question" class="form-control" [(ngModel)]="qnname" required ></textarea> </td>
+                                                                  
+                                                               </tr>
+                                                               <tr>
+                                                                   <td> <input type="text" name="opt1" placeholder="Option1" class="form-control" [(ngModel)]="opt1" required > </td>
+                                                                   
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="text" name="opt2" placeholder="Option2" class="form-control" [(ngModel)]="opt2" required  ></td>
+                                                                        
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> <input type="text" name="opt3" placeholder="Option3" class="form-control" [(ngModel)]="opt3" required  ></td>
+                                                                       
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="text" name="opt4" placeholder="Option4" class="form-control"  [(ngModel)]="opt4" required  ></td>
+                                                                        
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="text" name="ans" placeholder="ANSWER" class="form-control" [(ngModel)]="ans" required  ></td>
+                                                                </tr>
+                                                                <tr align="center">
+                                                                        <td><button type="submit" class="btn btn-primary">ADD QUESTION</button></td>
+                                                                </tr>
+                                                        </table>
+                                                
+                                        </div>
+                                        <div class="col col-12 col-sm-2"></div>
+                                    </div>
+                                </div>
+                    </form>
+                    
+                      
+            </div> 
+            <div class="col col-12 col-sm-1"> </div> 
+        </div>
+</div>
+
+
+
+
+
+

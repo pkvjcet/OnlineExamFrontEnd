@@ -1,0 +1,69 @@
+<div class="container">
+        <div class="row">
+               
+            <div class="col col-12 col-sm-1"> </div> 
+            <div class="col col-12 col-sm-10"> 
+                <br>
+                    <div class="page-header" *ngIf="notstartedexam">
+                            <h1 class="bg-primary ">Attend Exam</h1>
+                    </div> 
+                              
+                    <select  class="form-control input_pass" name="u_examname" [(ngModel)]="examnameSelected" *ngIf="notstartedexam" >
+                        <option > Select Test</option>    
+                        <option *ngFor="let x of examnames">{{x}}</option>
+                    </select>
+                    <div class="container" *ngIf="notstartedexam">
+                        <div class="row">
+                            <div class="col col-12 col-sm-4"></div>
+                            <div class="col col-12 col-sm-4">
+                                    <div class="table">
+                                            <tr align="center">
+                                                <td><button class="btn btn-primary" (click)="loadQuestions()" >Attend Now</button></td>
+                                            </tr>
+                                    </div>
+                            </div>
+                            <div class="col col-12 col-sm-4"></div>
+                        </div>
+                    </div>
+                    <table class="table" *ngFor ='let qn of qns;let i = index'>
+                            <tr>
+                                    <td>{{i+1}}.{{qn.qusestion}}</td>
+                            </tr>
+                            <tr >
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt1,qn.ans,i)">{{qn.opt1}}</td>
+                            </tr>
+                            <tr >
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt2,qn.ans,i)" >{{qn.opt2}}</td>
+                            </tr>
+                            <tr >
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt3,qn.ans,i)" >{{qn.opt3}}</td>
+                            </tr>
+                            <tr >
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt4,qn.ans,i)" >{{qn.opt4}}</td>
+                            </tr>                        
+                </table>
+                    
+                <div class="container" *ngIf="!notstartedexam">
+                        <div class="row">
+                            <div class="col col-12 col-sm-4"></div>
+                            <div class="col col-12 col-sm-4">
+                                    <div class="table">
+                                            <tr align="center">
+                                                <td><button class="btn btn-primary" (click)="calculateMark()" >Finish</button></td>
+                                            </tr>
+                                        </div>
+                            </div>
+                            <div class="col col-12 col-sm-4"></div>
+                        </div>
+                    </div>   
+                   
+            </div> 
+            <div class="col col-12 col-sm-1"> </div> 
+        </div>
+</div>
+
+
+
+
+
+

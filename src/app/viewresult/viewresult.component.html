@@ -1,0 +1,42 @@
+<div class="container">
+        <div class="row">
+               
+            <div class="col col-12 col-sm-1"> </div> 
+            <div class="col col-12 col-sm-10">  
+                    <div class="page-header">
+                            <h1 class="bg-primary ">View Result</h1>
+                    </div>                  
+                    <select  class="form-control input_pass" name="u_examname" [(ngModel)]="examnameSelected" (change)="onChange($event.target.value)">
+                        <option > Select Test</option>    
+                        <option *ngFor="let x of examnames">{{x}}</option>
+                    </select>
+                    <form >
+                            <table class="table">
+                                    <thead>
+                                        <tr>
+                                           
+                                            <th>User Name</th>
+                                            <th>Full Name</th>  
+                                            <th>Attended?</th>  
+                                            <th>Mark</th>    
+                                        </tr>
+                                    </thead>
+                                      <tr *ngFor ='let participant of participants'>
+                                       
+                                        <td>{{participant.username}}</td>
+                                        <td>{{participant.studentname}}</td>  
+                                        <td>{{participant.attended}}</td>  
+                                        <td>{{participant.mark}}</td> 
+                                      </tr>
+                                </table>
+                    </form>   
+            </div> 
+            <div class="col col-12 col-sm-1"> </div> 
+        </div>
+</div>
+
+
+
+
+
+
