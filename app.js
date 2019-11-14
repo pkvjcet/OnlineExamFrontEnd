@@ -1,8 +1,8 @@
 const express=require('express');
 const path=require('path');
 const app=express();
-app.use(express.static(__dirname+'/dist/products'));
+app.use(express.static(__dirname+'/dist/onlineexam'));
 app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname+'/dist/products/index.html'))
+    res.sendFile(path.join(__dirname+'/dist/onlineexam/index.html'))
 });
 app.listen(process.env.PORT||3000);
