@@ -90,11 +90,14 @@ export class EnrollstudentsComponent implements OnInit {
             }
            
          }
-         if(alreadyenrolled==false){
-          this.api.enrollStudents(this.examnameSelected,this.faculty,id,fullname).subscribe(()=>{
+//          if(alreadyenrolled==false){
+//           this.api.enrollStudents(this.examnameSelected,this.faculty,id,fullname).subscribe(()=>{
+//           });
+
+//          }
+         this.api.enrollStudents(this.examnameSelected,this.faculty,id,fullname).subscribe(()=>{
           });
 
-         }
           
       this.index = this.students.findIndex(x => x.userName ===id);
       this.students.splice(this.index,1);
