@@ -52,6 +52,12 @@ export class UploadqnsComponent implements OnInit {
       });
 
       window.alert("Added successfully..");
+      this.qnname=""; 
+      this.opt1="";
+      this.opt2="";
+      this.opt3="";
+      this.opt4="";
+      this.ans="";
      // this.router.navigate(['uploadqns']);
     }
   }
