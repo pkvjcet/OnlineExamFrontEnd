@@ -57,20 +57,30 @@ export class StudentdashboardComponent implements OnInit {
   }
   }
 
-  calculateMark(){
-    var k=0;
-    for(k=0;k<this.marks.length;k++){
-      if(this.marks[k]==1){
-        this.totalmark=this.totalmark+1;
+   calculateMark(){
+
+    if(confirm("Are you sure to Finish?")) {
+     
+      var k=0;
+      for(k=0;k<this.marks.length;k++){
+        if(this.marks[k]==1){
+          this.totalmark=this.totalmark+1;
+        }
       }
+  
+      window.alert("Your Score is :"+this.totalmark);
+      this.api.updateMark(this.examnameSelected,this.student,this.totalmark).subscribe(()=>{
+  
+      })
+      this.router.navigate(['']);
+
     }
-
-    window.alert("Your Score is :"+this.totalmark);
-    this.api.updateMark(this.examnameSelected,this.student,this.totalmark).subscribe(()=>{
-
-    })
-    this.router.navigate(['']);
+    else{
+      window.alert("not submitted");
+    }
+    
   }
+
 
   onItemChange(selectedoption,ans,qnno){
     console.log(" Value is : "+selectedoption+ans);
