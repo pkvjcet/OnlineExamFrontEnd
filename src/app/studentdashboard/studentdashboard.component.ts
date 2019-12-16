@@ -15,6 +15,7 @@ export class StudentdashboardComponent implements OnInit {
   marks:Array<number>=[];
   totalmark=0;
   i=0;
+  p: number = 1;
   student=localStorage.getItem("userFullName");
   //studentusername=localStorage.getItem("");
   qns:IQuestion[];
@@ -43,11 +44,15 @@ export class StudentdashboardComponent implements OnInit {
       window.alert("Please select Exam...")
     }
     else{  
+      let qnstemp:IQuestion[];
+      let i;
       window.alert("Only one attend is allowed..All the best....");  
       this.notstartedexam=false;
       this.api.getQuestions(this.examnameSelected).subscribe((qns)=>{
         console.log(JSON.parse(JSON.stringify(qns[0].qns)));
-        this.qns=JSON.parse(JSON.stringify(qns[0].qns));
+        qnstemp=JSON.parse(JSON.stringify(qns[0].qns));      
+
+        this.qns=this.shuffle(qnstemp);
       })
   }
   }
@@ -77,6 +82,25 @@ export class StudentdashboardComponent implements OnInit {
     }
 
  }
+
+  shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
  
 
 }
