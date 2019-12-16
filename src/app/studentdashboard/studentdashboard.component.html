@@ -25,23 +25,24 @@
                             <div class="col col-12 col-sm-4"></div>
                         </div>
                     </div>
-                    <table class="table" *ngFor ='let qn of qns;let i = index'>
+                    <table class="table" *ngFor ='let qn of qns | paginate :{ itemsPerPage: 1,currentPage: p }'>
                             <tr>
-                                    <td>{{i+1}}.{{qn.qusestion}}</td>
+                                    <td>{{p}}.) {{qn.qusestion}}</td>
                             </tr>
                             <tr >
-                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt1,qn.ans,i)">{{qn.opt1}}</td>
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt1,qn.ans,p-1)">{{qn.opt1}}</td>
                             </tr>
                             <tr >
-                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt2,qn.ans,i)" >{{qn.opt2}}</td>
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt2,qn.ans,p-1)" >{{qn.opt2}}</td>
                             </tr>
                             <tr >
-                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt3,qn.ans,i)" >{{qn.opt3}}</td>
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt3,qn.ans,p-1)" >{{qn.opt3}}</td>
                             </tr>
                             <tr >
-                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt4,qn.ans,i)" >{{qn.opt4}}</td>
+                                    <td><input type="radio" name={{qn._id}} (change)="onItemChange(qn.opt4,qn.ans,p-1)" >{{qn.opt4}}</td>
                             </tr>                        
                 </table>
+                <pagination-controls (pageChange)="p = $event" *ngIf="!notstartedexam"></pagination-controls>
                     
                 <div class="container" *ngIf="!notstartedexam">
                         <div class="row">
@@ -61,6 +62,12 @@
             <div class="col col-12 col-sm-1"> </div> 
         </div>
 </div>
+
+
+
+
+
+
 
 
 
